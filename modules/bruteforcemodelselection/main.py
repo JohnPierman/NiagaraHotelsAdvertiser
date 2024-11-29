@@ -53,8 +53,8 @@ class BruteForceSubsetSelection:
     def load_data(filename):
         """Load data from a CSV file."""
         data = pd.read_csv(filename)
-        X = data.iloc[:, :-1].values  # Features are all columns except the last
-        y = data.iloc[:, -1].values  # Target is the last column
+        X = data.iloc[1:, :].values  # Features are all columns except the first
+        y = data.iloc[1:, ].values  # Target is the first column
         return X, y
 
     @staticmethod
@@ -109,7 +109,7 @@ def generate_test_data(n_samples=1000, n_features=10, n_informative=5, noise=0.1
 
 # Usage example
 # Generate a dataset with 1000 samples, 10 features, and save it as 'test_data.csv'
-df = generate_test_data(n_samples=1000, n_features=10, n_informative=5, noise=0.1, filename="test_data.csv")
+#df = generate_test_data(n_samples=1000, n_features=10, n_informative=5, noise=0.1, filename="test_data.csv")
 
 # Load the data
 X, y = BruteForceSubsetSelection.load_data('test_data.csv')

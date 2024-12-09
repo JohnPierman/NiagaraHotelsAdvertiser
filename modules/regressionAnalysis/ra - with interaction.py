@@ -18,7 +18,6 @@ data['Interaction'] = data['Distance to Niagara Falls (miles)'] * data['Average 
 y = data['Interaction'].values  # Set the interaction term as the target
 
 # Specify the indices of the columns to use as features (omit the original target columns)
-#input_indices = [3, 4, 5, 6, 7, 8, 9, 10]  # Indices of remaining feature columns
 input_indices = [2, 3, 4, 5, 6, 7, 8, 9, 10,11,12]  # Indices of remaining feature columns
 X = data.iloc[:, input_indices].values  # Extract specified columns as features
 

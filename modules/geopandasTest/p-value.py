@@ -95,7 +95,7 @@ us_states.boundary.plot(ax=ax, linewidth=1)
 # Adjust color scale dynamically based on actual data range
 us_states.plot(
     column="New_Variable",
-    cmap="coolwarm",  # Reversed color map
+    cmap="coolwarm",
     linewidth=0.8,
     edgecolor="black",
     legend=False,

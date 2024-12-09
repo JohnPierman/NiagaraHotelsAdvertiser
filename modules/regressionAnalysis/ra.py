@@ -18,8 +18,8 @@ selected_columns = [6, 8, 11]  # Second column (y) and the selected features
 data_filtered = data.iloc[:, selected_columns]
 
 # Separate features (X) and target (y)
-y = data_filtered.iloc[:, 0].values  # First column in the filtered data (original index 1)
-X = data_filtered.iloc[:, 1:].values  # Remaining columns in the filtered data (original indexes 6, 8, 11)
+y = data_filtered.iloc[:, 0].values  # First column in the filtered data
+X = data_filtered.iloc[:, 1:].values  # Remaining columns in the filtered data
 
 # Standardize the features (subtract mean and divide by std)
 X_standardized = (X - X.mean(axis=0)) / X.std(axis=0)

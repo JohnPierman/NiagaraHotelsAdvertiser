@@ -53,8 +53,8 @@ class BruteForceSubsetSelection:
     def load_data(filename):
         """Load data from a CSV file."""
         data = pd.read_csv(filename)
-        X = data.iloc[:, 2:].values  # Features are all columns except the first & second
-        y = data.iloc[:, 1].values  # Target is the second column
+        X = data.iloc[:, 2:].values
+        y = data.iloc[:, 1].values
         return X, y
 
     @staticmethod
@@ -65,51 +65,6 @@ class BruteForceSubsetSelection:
         results_df['Best_MSE'] = best_mse
         results_df.to_csv(filename, index=False)
 
-
-def generate_test_data(n_samples=1000, n_features=10, n_informative=5, noise=0.1, random_state=42,
-                       filename="test_data.csv"):
-    """
-    Generate synthetic test data with specified numbers of informative and irrelevant features.
-
-    Parameters:
-    - n_samples: int, number of samples to generate
-    - n_features: int, total number of features
-    - n_informative: int, number of features that are informative (related to the target)
-    - noise: float, standard deviation of Gaussian noise to add to the target
-    - random_state: int, random seed for reproducibility
-    - filename: str, filename to save the dataset as a CSV file
-
-    Returns:
-    - df: DataFrame, generated dataset with informative and irrelevant features
-    """
-    np.random.seed(random_state)
-
-    # Generate informative features
-    X_informative = np.random.rand(n_samples, n_informative)
-    true_coefficients = np.random.rand(n_informative) * 0.5  # Scale coefficients
-    y = X_informative @ true_coefficients  # Target influenced only by informative features
-
-    # Add Gaussian noise to the target variable
-    y += noise * np.random.randn(n_samples)
-
-    # Generate irrelevant features for the remaining columns
-    X_irrelevant = np.random.rand(n_samples, n_features - n_informative) * 100  # Larger range for variability
-
-    # Concatenate informative and irrelevant features
-    X = np.hstack((X_informative, X_irrelevant))
-
-    # Convert to DataFrame and save
-    df = pd.DataFrame(X, columns=[f"Feature_{i + 1}" for i in range(n_features)])
-    df['Target'] = y
-    df.to_csv(filename, index=False)
-
-    print(f"Generated dataset with {n_samples} samples and {n_features} features saved to {filename}")
-    return df
-
-
-# Usage example
-# Generate a dataset with 1000 samples, 10 features, and save it as 'test_data.csv'
-#df = generate_test_data(n_samples=1000, n_features=10, n_informative=5, noise=0.1, filename="test_data.csv")
 
 # Load the data
 X, y = BruteForceSubsetSelection.load_data('Updated_Data.csv')

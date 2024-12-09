@@ -88,7 +88,7 @@ def visualize_low_p_values():
     # Adjust color scale dynamically based on actual data range
     us_states_filtered.plot(
         column="New_Variable_LowP",
-        cmap="coolwarm",  # Reversed color map
+        cmap="coolwarm",
         linewidth=0.8,
         edgecolor="black",
         legend=False,

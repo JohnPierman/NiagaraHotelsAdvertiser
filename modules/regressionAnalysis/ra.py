@@ -6,7 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load the dataset
-file_path = '../bruteforcemodelselection/Updated_Data.csv'  # Replace with the correct path to your dataset
+file_path = '../bruteforcemodelselection/Updated_Data.csv'
 data = pd.read_csv(file_path)
 
 # Remove formatting from numeric columns

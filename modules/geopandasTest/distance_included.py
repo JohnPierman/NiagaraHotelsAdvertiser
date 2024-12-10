@@ -39,8 +39,7 @@ data = pd.read_csv(data_path)
 print("Available columns in the dataset:")
 print(data.columns)
 
-# Define the columns to use by their indices (0-based)
-selected_columns_indices = [6, 7, 9, 10, 11]  # Replace with your desired indices
+selected_columns_indices = [6, 7, 9, 10, 11]
 selected_columns = data.columns[selected_columns_indices]
 
 # Define coefficients and p-values for the selected columns
